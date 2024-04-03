@@ -15,6 +15,7 @@ class BottomNavigationWidget extends StatelessWidget {
       ]),
       child: BottomNavigationBar(
           selectedItemColor: const Color(0xFF17479b),
+          iconSize: 30,
           unselectedItemColor: const Color(0xFF17479b).withOpacity(.60),
           selectedLabelStyle:
               const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
