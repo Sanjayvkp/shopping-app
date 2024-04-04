@@ -19,11 +19,8 @@ class CustomerPage extends StatelessWidget {
           child: Column(
             children: [
               TextFieldWidget(
-                  widget: Icon(
-                Icons.add_circle_outlined,
-                size: 30,
-                color: Color(0xFF17479b),
-              )),
+              isProduct: false,
+              ),
               SizedBox(
                 height: 16,
               ),

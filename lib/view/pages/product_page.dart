@@ -23,7 +23,7 @@ class ProductPage extends StatelessWidget {
             child: Column(
               children: [
                 TextFieldWidget(
-                  widget: Text('Fruits'),
+                  isProduct: true,
                 ),
                 SizedBox(
                   height: 16,
