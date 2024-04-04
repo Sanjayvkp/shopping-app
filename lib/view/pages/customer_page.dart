@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/view/widgets/appbar_widget.dart';
 import 'package:shopping_app/view/widgets/bottom_navigation_widget.dart';
+import 'package:shopping_app/view/widgets/customer_list_widget.dart';
 import 'package:shopping_app/view/widgets/textfield_widget.dart';
 
 class CustomerPage extends StatelessWidget {
@@ -22,7 +23,11 @@ class CustomerPage extends StatelessWidget {
                 Icons.add_circle_outlined,
                 size: 30,
                 color: Color(0xFF17479b),
-              ))
+              )),
+              SizedBox(
+                height: 16,
+              ),
+              CustomerListWidget()
             ],
           ),
         ),

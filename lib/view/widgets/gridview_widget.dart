@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:shopping_app/controller/list_view_controller.dart';
 
-class GridViewWidget extends StatefulWidget {
+class GridViewWidget extends HookWidget {
   const GridViewWidget({super.key});
 
   @override
-  State<GridViewWidget> createState() => _GridViewWidgetState();
-}
-
-class _GridViewWidgetState extends State<GridViewWidget> {
-  int? tappedIndex;
-  @override
   Widget build(BuildContext context) {
+    final selected = useState<int>(-1);
     return GridView.builder(
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
@@ -26,14 +22,12 @@ class _GridViewWidgetState extends State<GridViewWidget> {
           padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
           child: InkWell(
             onTap: () {
-              setState(() {
-                tappedIndex = index;
-              });
+              selected.value = index;
             },
             child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: tappedIndex == index
+                  color: selected.value == index
                       ? const Color(0xFF17479b)
                       : Colors.white,
                   boxShadow: [
@@ -47,14 +41,14 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                     Icon(
                       listofModels[index].icon,
                       size: 40,
-                      color: tappedIndex == index
+                      color: selected.value == index
                           ? Colors.white
                           : const Color(0xFF17479b),
                     ),
                     Text(
                       listofModels[index].title,
                       style: TextStyle(
-                          color: tappedIndex == index
+                          color: selected.value == index
                               ? Colors.white
                               : const Color(0xFF17479b),
                           fontWeight: FontWeight.bold,

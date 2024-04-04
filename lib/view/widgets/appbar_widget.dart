@@ -8,9 +8,13 @@ class AppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
+      backgroundColor: Colors.white,
       toolbarHeight: 75,
       leading: IconButton(
-          onPressed: () {}, icon: const Icon(Icons.arrow_back_ios_new)),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios_new)),
       title: Text(
         title,
         style: const TextStyle(

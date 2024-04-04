@@ -7,7 +7,7 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: 45,
       child: TextField(
         decoration: InputDecoration(
             prefixIcon: const Icon(
@@ -33,7 +33,7 @@ class TextFieldWidget extends StatelessWidget {
                   const SizedBox(
                     width: 8,
                   ),
-                widget,
+                  widget,
                 ],
               ),
             ),

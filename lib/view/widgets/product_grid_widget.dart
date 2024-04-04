@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/view/pages/customer_page.dart';
 
 class ProductGridviewWidget extends StatelessWidget {
   const ProductGridviewWidget({super.key});
@@ -53,20 +54,29 @@ class ProductGridviewWidget extends StatelessWidget {
                         ],
                       ),
                       const Expanded(child: SizedBox()),
-                      Container(
-                        height: 20,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: const Color(0xFF17479b),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Add',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return const CustomerPage();
+                            },
+                          ));
+                        },
+                        child: Container(
+                          height: 20,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: const Color(0xFF17479b),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'Add',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500),
+                            ),
                           ),
                         ),
                       )

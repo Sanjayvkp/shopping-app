@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/view/pages/product_page.dart';
 import 'package:shopping_app/view/widgets/bottom_navigation_widget.dart';
 import 'package:shopping_app/view/widgets/gridview_widget.dart';
 
@@ -17,7 +18,17 @@ class HomePage extends StatelessWidget {
               backgroundColor: Colors.black,
             ),
           ),
-          actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.sort))],
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const ProductPage();
+                    },
+                  ));
+                },
+                icon: const Icon(Icons.sort))
+          ],
         ),
         body: const SingleChildScrollView(
           child: Padding(
