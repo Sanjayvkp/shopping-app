@@ -46,14 +46,14 @@ class CustomerListWidget extends StatelessWidget {
                       ),
                       Container(
                         width: 1,
-                        height: 100,
+                        height: 90,
                         decoration: const BoxDecoration(
                             gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 colors: [
                               Colors.transparent,
-                              Colors.black,
+                              Colors.black26,
                               Colors.transparent
                             ])),
                       ),
@@ -75,18 +75,19 @@ class CustomerListWidget extends StatelessWidget {
                                 color: Color.fromARGB(255, 111, 111, 111),
                                 fontWeight: FontWeight.w900),
                           ),
-                          const Text(
-                            'West palazhi,calicut,kerala',
-                            style: TextStyle(
+                          Text(
+                            '${snapshot.data![index].street!},${snapshot.data![index].city},${snapshot.data![index].state!}',
+                            style: const TextStyle(
                                 color: Color.fromARGB(255, 111, 111, 111),
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 13),
                           ),
                           RichText(
                             text: const TextSpan(
                                 text: 'Due Amount:',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 14,
+                                    fontSize: 13,
                                     color: Colors.black),
                                 children: [
                                   TextSpan(
@@ -96,19 +97,28 @@ class CustomerListWidget extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const Expanded(
+                      Expanded(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            CircleAvatar(
+                            const CircleAvatar(
                               radius: 10,
+                              backgroundColor: Color(0xFF17479b),
+                              child: Center(
+                                child: Icon(
+                                  Icons.phone,
+                                  size: 10,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
-                            CircleAvatar(
-                              radius: 10,
+                            Image.asset(
+                              'assets/images/whatsapp_logo.png',
+                              height: 20,
                             ),
                           ],
                         ),

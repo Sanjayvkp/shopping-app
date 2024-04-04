@@ -14,7 +14,10 @@ class AppBarWidget extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios_new)),
+          icon: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            size: 30,
+          )),
       title: Text(
         title,
         style: const TextStyle(

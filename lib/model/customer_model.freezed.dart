@@ -206,6 +206,9 @@ mixin _$Details {
   String get name => throw _privateConstructorUsedError;
   String? get profilePic => throw _privateConstructorUsedError;
   String get city => throw _privateConstructorUsedError;
+  String? get street => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
+  String? get state => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -217,7 +220,14 @@ abstract class $DetailsCopyWith<$Res> {
   factory $DetailsCopyWith(Details value, $Res Function(Details) then) =
       _$DetailsCopyWithImpl<$Res, Details>;
   @useResult
-  $Res call({int id, String name, String? profilePic, String city});
+  $Res call(
+      {int id,
+      String name,
+      String? profilePic,
+      String city,
+      String? street,
+      String? country,
+      String? state});
 }
 
 /// @nodoc
@@ -237,6 +247,9 @@ class _$DetailsCopyWithImpl<$Res, $Val extends Details>
     Object? name = null,
     Object? profilePic = freezed,
     Object? city = null,
+    Object? street = freezed,
+    Object? country = freezed,
+    Object? state = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -255,6 +268,18 @@ class _$DetailsCopyWithImpl<$Res, $Val extends Details>
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String?,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -266,7 +291,14 @@ abstract class _$$DetailsImplCopyWith<$Res> implements $DetailsCopyWith<$Res> {
       __$$DetailsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, String? profilePic, String city});
+  $Res call(
+      {int id,
+      String name,
+      String? profilePic,
+      String city,
+      String? street,
+      String? country,
+      String? state});
 }
 
 /// @nodoc
@@ -284,6 +316,9 @@ class __$$DetailsImplCopyWithImpl<$Res>
     Object? name = null,
     Object? profilePic = freezed,
     Object? city = null,
+    Object? street = freezed,
+    Object? country = freezed,
+    Object? state = freezed,
   }) {
     return _then(_$DetailsImpl(
       id: null == id
@@ -302,6 +337,18 @@ class __$$DetailsImplCopyWithImpl<$Res>
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String?,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -313,7 +360,10 @@ class _$DetailsImpl implements _Details {
       {required this.id,
       required this.name,
       required this.profilePic,
-      required this.city});
+      required this.city,
+      required this.street,
+      required this.country,
+      required this.state});
 
   factory _$DetailsImpl.fromJson(Map<String, dynamic> json) =>
       _$$DetailsImplFromJson(json);
@@ -326,10 +376,16 @@ class _$DetailsImpl implements _Details {
   final String? profilePic;
   @override
   final String city;
+  @override
+  final String? street;
+  @override
+  final String? country;
+  @override
+  final String? state;
 
   @override
   String toString() {
-    return 'Details(id: $id, name: $name, profilePic: $profilePic, city: $city)';
+    return 'Details(id: $id, name: $name, profilePic: $profilePic, city: $city, street: $street, country: $country, state: $state)';
   }
 
   @override
@@ -341,12 +397,16 @@ class _$DetailsImpl implements _Details {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.profilePic, profilePic) ||
                 other.profilePic == profilePic) &&
-            (identical(other.city, city) || other.city == city));
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.street, street) || other.street == street) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.state, state) || other.state == state));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, profilePic, city);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, profilePic, city, street, country, state);
 
   @JsonKey(ignore: true)
   @override
@@ -367,7 +427,10 @@ abstract class _Details implements Details {
       {required final int id,
       required final String name,
       required final String? profilePic,
-      required final String city}) = _$DetailsImpl;
+      required final String city,
+      required final String? street,
+      required final String? country,
+      required final String? state}) = _$DetailsImpl;
 
   factory _Details.fromJson(Map<String, dynamic> json) = _$DetailsImpl.fromJson;
 
@@ -379,6 +442,12 @@ abstract class _Details implements Details {
   String? get profilePic;
   @override
   String get city;
+  @override
+  String? get street;
+  @override
+  String? get country;
+  @override
+  String? get state;
   @override
   @JsonKey(ignore: true)
   _$$DetailsImplCopyWith<_$DetailsImpl> get copyWith =>

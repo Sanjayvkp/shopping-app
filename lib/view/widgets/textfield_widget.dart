@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
@@ -11,12 +12,13 @@ class TextFieldWidget extends StatelessWidget {
       child: TextField(
         decoration: InputDecoration(
             prefixIcon: const Icon(
-              Icons.search,
+              CupertinoIcons.search,
               color: Colors.grey,
+              size: 20,
             ),
             suffixIcon: isProduct == true
                 ? Padding(
-                    padding: const EdgeInsets.only(right: 24),
+                    padding: const EdgeInsets.only(right: 12),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -34,29 +36,41 @@ class TextFieldWidget extends StatelessWidget {
                         const SizedBox(
                           width: 8,
                         ),
-                        const Text('fruits'),
+                        const Text('Fruits'),
+                        const Icon(
+                          Icons.keyboard_arrow_down,
+                          color: Colors.grey,
+                        )
                       ],
                     ))
-                : const Padding(
-                    padding: EdgeInsets.only(right: 14),
+                : Padding(
+                    padding: const EdgeInsets.only(right: 14),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.qr_code_scanner_outlined),
-                        SizedBox(
+                        const Icon(Icons.qr_code_scanner_outlined),
+                        const SizedBox(
                           width: 8,
                         ),
-                        Icon(
-                          Icons.add_circle_outlined,
-                          size: 30,
-                          color: Color(0xFF17479b),
-                        )
+                        InkWell(
+                          onTap: () {},
+                          child: const CircleAvatar(
+                            radius: 12,
+                            backgroundColor: Color(0xFF17479b),
+                            child: Icon(
+                              Icons.add,
+                              size: 15,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-            contentPadding: const EdgeInsets.symmetric(vertical: 10),
+            contentPadding: const EdgeInsets.symmetric(vertical: 8),
             hintText: 'Search',
-            hintStyle: const TextStyle(color: Colors.grey),
+            hintStyle: const TextStyle(
+                color: Colors.grey, fontSize: 14, fontWeight: FontWeight.bold),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
       ),

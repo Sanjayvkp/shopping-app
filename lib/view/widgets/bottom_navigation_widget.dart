@@ -16,11 +16,11 @@ class BottomNavigationWidget extends StatelessWidget {
       child: BottomNavigationBar(
           selectedItemColor: const Color(0xFF17479b),
           iconSize: 30,
-          unselectedItemColor: const Color(0xFF17479b).withOpacity(.60),
+          unselectedItemColor: const Color(0xFF17479b).withOpacity(.80),
           selectedLabelStyle:
               const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
           unselectedLabelStyle:
-              const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
+              const TextStyle(fontWeight: FontWeight.w500, fontSize: 10),
           type: BottomNavigationBarType.fixed,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
