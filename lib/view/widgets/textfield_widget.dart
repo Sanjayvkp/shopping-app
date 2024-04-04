@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget({super.key});
+  final Widget widget;
+  const TextFieldWidget({super.key, required this.widget});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class TextFieldWidget extends StatelessWidget {
                   const SizedBox(
                     width: 8,
                   ),
-                  const Text('Fruits')
+                widget,
                 ],
               ),
             ),

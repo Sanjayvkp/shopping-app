@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/view/widgets/appbar_widget.dart';
 import 'package:shopping_app/view/widgets/bottom_navigation_widget.dart';
 import 'package:shopping_app/view/widgets/product_grid_widget.dart';
 import 'package:shopping_app/view/widgets/textfield_widget.dart';
@@ -12,26 +13,18 @@ class ProductPage extends StatelessWidget {
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          toolbarHeight: 80,
-          leading: IconButton(
-              onPressed: () {}, icon: const Icon(Icons.arrow_back_ios_new)),
-          title: const Text(
-            'Nesto Hypermarket',
-            style: TextStyle(
-                color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
-          ),
-          centerTitle: true,
-          actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.sort))],
-        ),
-        body: const SingleChildScrollView(
+      child: const Scaffold(
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(85),
+            child: AppBarWidget(title: 'Nesto Hypermarket')),
+        body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
-                TextFieldWidget(),
+                TextFieldWidget(
+                  widget: Text('Fruits'),
+                ),
                 SizedBox(
                   height: 16,
                 ),
@@ -40,7 +33,7 @@ class ProductPage extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: const BottomNavigationWidget(),
+        bottomNavigationBar: BottomNavigationWidget(),
       ),
     );
   }
