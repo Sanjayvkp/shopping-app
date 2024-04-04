@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/controller/services/api_services.dart';
-import 'package:shopping_app/utils/api_utils.dart';
 import 'package:shopping_app/view/pages/customer_page.dart';
 
 class ProductGridviewWidget extends StatelessWidget {
@@ -40,16 +39,13 @@ class ProductGridviewWidget extends StatelessWidget {
                         const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                     child: Column(
                       children: [
-                        Center(
+                        const Center(
                             child: SizedBox(
                           height: 75,
                           width: 80,
                           child: Image(
-                              image: NetworkImage(
-                                ApiUtils.baseUrl +
-                                  ApiUtils.products +
-                                  snapshot.data![index].image,)
-                                  ),
+                              image:
+                                  AssetImage('assets/images/fruit_demo.png')),
                         )),
                         const SizedBox(
                           height: 8,
@@ -64,8 +60,19 @@ class ProductGridviewWidget extends StatelessWidget {
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold),
                                 ),
-                                Text(snapshot.data![index].price.toString()),
+                                Text(
+                                  '\$ ${snapshot.data![index].price}/-',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.grey.shade700),
+                                ),
                               ],
+                            ),
+                            const Expanded(child: SizedBox()),
+                            Container(
+                              height: 24,
+                              color: Colors.grey.shade300,
+                              width: 1,
                             ),
                             const Expanded(child: SizedBox()),
                             InkWell(
