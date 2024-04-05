@@ -3,13 +3,20 @@ import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final bool? isProduct;
-  const TextFieldWidget({super.key, required this.isProduct});
+  final TextEditingController? textEditingController;
+  final void Function()? onTap;
+  const TextFieldWidget(
+      {super.key,
+      required this.isProduct,
+      required this.onTap,
+      required this.textEditingController});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 45,
       child: TextField(
+        controller: textEditingController,
         decoration: InputDecoration(
             prefixIcon: const Icon(
               CupertinoIcons.search,
@@ -53,7 +60,7 @@ class TextFieldWidget extends StatelessWidget {
                           width: 8,
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: onTap,
                           child: const CircleAvatar(
                             radius: 12,
                             backgroundColor: Color(0xFF17479b),

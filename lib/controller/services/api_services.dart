@@ -41,4 +41,25 @@ class ApiServices {
       throw Exception('Failed to fetch customers: $error');
     }
   }
+
+  Future<List<Details>> searchCustomer(String text) async {
+    try {
+      Response response = await dio.get(ApiUtils.baseUrl +
+          ApiUtils.customers +
+          ApiUtils.searchCustomer +
+          text);
+      if (response.statusCode == 200) {
+        final data = response.data;
+        final details = <Details>[];
+        for (var i in data['data']) {
+          details.add(Details.fromJson(i));
+        }
+        return details;
+      } else {
+        throw Exception('Failed to load customer');
+      }
+    } catch (error) {
+      throw Exception('Failed to fetch customer: $error');
+    }
+  }
 }

@@ -23,6 +23,11 @@ class GridViewWidget extends HookWidget {
           child: InkWell(
             onTap: () {
               selected.value = index;
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => listPages[index],
+                  ));
             },
             child: Container(
               decoration: BoxDecoration(
