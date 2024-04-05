@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 class TextFieldWidget extends StatelessWidget {
   final bool? isProduct;
   final TextEditingController? textEditingController;
-  final void Function()? onTap;
+
+  final void Function(String)? onSubmitted;
   const TextFieldWidget(
       {super.key,
       required this.isProduct,
-      required this.onTap,
+      required this.onSubmitted,
       required this.textEditingController});
 
   @override
@@ -16,6 +17,7 @@ class TextFieldWidget extends StatelessWidget {
     return SizedBox(
       height: 45,
       child: TextField(
+        onSubmitted: onSubmitted,
         controller: textEditingController,
         decoration: InputDecoration(
             prefixIcon: const Icon(
@@ -50,25 +52,22 @@ class TextFieldWidget extends StatelessWidget {
                         )
                       ],
                     ))
-                : Padding(
-                    padding: const EdgeInsets.only(right: 14),
+                : const Padding(
+                    padding: EdgeInsets.only(right: 14),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.qr_code_scanner_outlined),
-                        const SizedBox(
+                        Icon(Icons.qr_code_scanner_outlined),
+                        SizedBox(
                           width: 8,
                         ),
-                        InkWell(
-                          onTap: onTap,
-                          child: const CircleAvatar(
-                            radius: 12,
-                            backgroundColor: Color(0xFF17479b),
-                            child: Icon(
-                              Icons.add,
-                              size: 15,
-                              color: Colors.white,
-                            ),
+                        CircleAvatar(
+                          radius: 12,
+                          backgroundColor: Color(0xFF17479b),
+                          child: Icon(
+                            Icons.add,
+                            size: 15,
+                            color: Colors.white,
                           ),
                         ),
                       ],

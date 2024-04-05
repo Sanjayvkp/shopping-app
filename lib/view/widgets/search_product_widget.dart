@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/model/product_model.dart';
 
-class ProductGridviewWidget extends StatelessWidget {
-  final List<Datas> list;
+class SearchProductWidget extends StatelessWidget {
+  final List<Datas> products;
 
-  const ProductGridviewWidget({super.key, required this.list});
+  const SearchProductWidget({super.key, required this.products});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ProductGridviewWidget extends StatelessWidget {
         mainAxisSpacing: 10,
         mainAxisExtent: 140,
       ),
-      itemCount: list.length,
+      itemCount: products.length,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.symmetric(
@@ -49,11 +49,11 @@ class ProductGridviewWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            list[index].name,
+                            products[index].name,
                             style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            '\$ ${list[index].price}/-',
+                            '\$ ${products[index].price}/-',
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 color: Colors.grey.shade700),
