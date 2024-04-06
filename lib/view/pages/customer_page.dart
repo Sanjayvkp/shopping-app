@@ -65,7 +65,8 @@ class CustomerPage extends HookConsumerWidget {
                           )
                         : SearchCustomerWidget(
                             customers: searchResults.value,
-                          )
+                          ),
+                         
                   ],
                 ),
               ),

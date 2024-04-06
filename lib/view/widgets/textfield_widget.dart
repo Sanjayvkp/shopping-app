@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shopping_app/view/widgets/show_model_widget.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final bool? isProduct;
@@ -52,22 +53,32 @@ class TextFieldWidget extends StatelessWidget {
                         )
                       ],
                     ))
-                : const Padding(
-                    padding: EdgeInsets.only(right: 14),
+                : Padding(
+                    padding: const EdgeInsets.only(right: 14),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.qr_code_scanner_outlined),
-                        SizedBox(
+                        const Icon(Icons.qr_code_scanner_outlined),
+                        const SizedBox(
                           width: 8,
                         ),
-                        CircleAvatar(
-                          radius: 12,
-                          backgroundColor: Color(0xFF17479b),
-                          child: Icon(
-                            Icons.add,
-                            size: 15,
-                            color: Colors.white,
+                        InkWell(
+                          onTap: () {
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (context) {
+                                return const ShowModelWidget();
+                              },
+                            );
+                          },
+                          child: const CircleAvatar(
+                            radius: 12,
+                            backgroundColor: Color(0xFF17479b),
+                            child: Icon(
+                              Icons.add,
+                              size: 15,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ],

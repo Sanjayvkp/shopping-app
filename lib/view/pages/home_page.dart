@@ -14,7 +14,12 @@ class HomePage extends StatelessWidget {
           leading: const Padding(
             padding: EdgeInsets.only(left: 24),
             child: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/avatar_demo.png'),
+              backgroundColor: Colors.black,
+              child: Icon(
+                Icons.person_2,
+                color: Colors.white,
+                size: 15,
+              ),
             ),
           ),
           actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.sort))],
