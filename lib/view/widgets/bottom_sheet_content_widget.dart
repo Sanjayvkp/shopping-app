@@ -8,7 +8,10 @@ class BottomSheetContentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
+      padding: EdgeInsets.only(
+        left: 24,
+        right: 24,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -72,6 +75,9 @@ class BottomSheetContentWidget extends StatelessWidget {
               Expanded(child: BottomSheetTextFieldWidget(label: 'Street 2'))
             ],
           ),
+          SizedBox(
+            height: 12,
+          ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -81,6 +87,9 @@ class BottomSheetContentWidget extends StatelessWidget {
               ),
               Expanded(child: BottomSheetTextFieldWidget(label: 'Pin code'))
             ],
+          ),
+          SizedBox(
+            height: 12,
           ),
           Row(
             mainAxisSize: MainAxisSize.min,

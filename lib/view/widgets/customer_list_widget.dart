@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopping_app/model/customer_model.dart';
 
-class CustomerListWidget extends StatelessWidget {
-  final List<Details> details;
-  const CustomerListWidget({super.key, required this.details});
+class CustomerListWidget extends ConsumerWidget {
+  final List<Details> customerDetails;
+  const CustomerListWidget({super.key, required this.customerDetails});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ListView.separated(
       separatorBuilder: (context, index) {
         return const SizedBox(
           height: 15,
         );
       },
-      itemCount: details.length,
+      itemCount: customerDetails.length,
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
       itemBuilder: (context, index) {
@@ -60,18 +61,18 @@ class CustomerListWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      details[index].name,
+                      customerDetails[index].name,
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     Text(
-                      'ID : ${details[index].id}',
+                      'ID : ${customerDetails[index].id}',
                       style: const TextStyle(
                           color: Color.fromARGB(255, 111, 111, 111),
                           fontWeight: FontWeight.w900),
                     ),
                     Text(
-                      '${details[index].street!},${details[index].city},${details[index].state!}',
+                      '${customerDetails[index].street!},${customerDetails[index].city},${customerDetails[index].state!}',
                       style: const TextStyle(
                           color: Color.fromARGB(255, 111, 111, 111),
                           fontWeight: FontWeight.bold,

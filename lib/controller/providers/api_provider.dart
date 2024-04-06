@@ -26,11 +26,11 @@ class Api extends _$Api {
     );
   }
 
-  Future<void> getProducts() async {
+  Stream<void> getProducts() async* {
     await apiServices.fetchProducts();
   }
 
-  Future<void> getCustomers() async {
+  Stream<void> getCustomers() async* {
     await apiServices.fetchCustomers();
   }
 

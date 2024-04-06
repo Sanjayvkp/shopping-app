@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -8,20 +7,17 @@ import 'package:shopping_app/model/customer_model.dart';
 import 'package:shopping_app/view/widgets/appbar_widget.dart';
 import 'package:shopping_app/view/widgets/bottom_navigation_widget.dart';
 import 'package:shopping_app/view/widgets/customer_list_widget.dart';
-import 'package:shopping_app/view/widgets/search_customer_widget.dart';
 import 'package:shopping_app/view/widgets/textfield_widget.dart';
 
 class CustomerPage extends HookConsumerWidget {
   const CustomerPage({
     super.key,
   });
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final searchController = useTextEditingController();
     final data = ref.read(apiProvider.notifier);
     final searchResults = useState<List<Details>>([]);
-
     Future<void> searchCustomerAndUpdateUI(String searchText) async {
       if (searchText.isNotEmpty) {
         try {
@@ -59,14 +55,11 @@ class CustomerPage extends HookConsumerWidget {
                     const SizedBox(
                       height: 16,
                     ),
-                    searchController.text.isEmpty
-                        ? CustomerListWidget(
-                            details: value.fetchCustomers,
-                          )
-                        : SearchCustomerWidget(
-                            customers: searchResults.value,
-                          ),
-                         
+                    CustomerListWidget(
+                      customerDetails: searchResults.value.isNotEmpty
+                          ? searchResults.value
+                          : value.fetchCustomers,
+                    )
                   ],
                 ),
               ),

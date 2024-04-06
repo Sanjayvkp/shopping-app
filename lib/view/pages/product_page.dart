@@ -8,7 +8,6 @@ import 'package:shopping_app/model/product_model.dart';
 import 'package:shopping_app/view/widgets/appbar_widget.dart';
 import 'package:shopping_app/view/widgets/bottom_navigation_widget.dart';
 import 'package:shopping_app/view/widgets/product_grid_widget.dart';
-import 'package:shopping_app/view/widgets/search_product_widget.dart';
 import 'package:shopping_app/view/widgets/textfield_widget.dart';
 
 class ProductPage extends HookConsumerWidget {
@@ -56,13 +55,11 @@ class ProductPage extends HookConsumerWidget {
                     const SizedBox(
                       height: 16,
                     ),
-                    productController.text.isNotEmpty
-                        ? SearchProductWidget(
-                            products: searchResults.value,
-                          )
-                        : ProductGridviewWidget(
-                            list: value.fetchProducts,
-                          )
+                    ProductGridviewWidget(
+                    productList: searchResults.value.isNotEmpty
+                          ? searchResults.value
+                          : value.fetchProducts,
+                    ),
                   ],
                 ),
               ),
