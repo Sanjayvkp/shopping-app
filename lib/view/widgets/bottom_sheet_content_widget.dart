@@ -160,17 +160,18 @@ class BottomSheetContentWidget extends HookConsumerWidget {
             child: ElevatedButtonWidget(
               onPressed: () {
                 ref.read(apiProvider.notifier).addCustomer(Details(
-                    id: null,
-                    name: nameController.text,
-                    profilePic: null,
-                    city: cityController.text,
-                    street: streetController.text,
-                    country: countryController.text,
-                    state: stateController.text,
-                    streetTwo: townController.text,
-                    email: emailController.text,
-                    number: mobileController.text,
-                    pinCode: pincodeController.text));
+                      id: null,
+                      name: nameController.text,
+                      profilePic: null,
+                      city: cityController.text,
+                      street: streetController.text,
+                      country: countryController.text,
+                      state: stateController.text,
+                      streetTwo: townController.text,
+                      email: emailController.text,
+                      number: mobileController.text,
+                      pinCode: pincodeController.text,
+                    ));
               },
             ),
           ))
