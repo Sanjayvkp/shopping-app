@@ -46,7 +46,7 @@ class CustomerPage extends HookConsumerWidget {
                   children: [
                     TextFieldWidget(
                       textEditingController: searchController,
-                      onSubmitted: (p0) async {
+                      onChanged: (p0) async {
                         String searchText = searchController.text;
                         await searchCustomerAndUpdateUI(searchText);
                       },

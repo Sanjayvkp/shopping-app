@@ -7,6 +7,7 @@ class ShowModelWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 520,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(

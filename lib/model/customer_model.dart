@@ -6,13 +6,17 @@ part 'customer_model.g.dart';
 @freezed
 class Details with _$Details {
   const factory Details({
-    required int id,
+    required int? id,
     required String name,
     required String? profilePic,
     required String city,
     required String? street,
     required String? country,
     required String? state,
+    required String? streetTwo,
+    required String? email,
+    required String? number,
+    required String? pinCode,
   }) = _Details;
 
   factory Details.fromJson(Map<String, dynamic> json) =>

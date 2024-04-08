@@ -1,24 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shopping_app/controller/providers/api_provider.dart';
+import 'package:shopping_app/model/customer_model.dart';
 import 'package:shopping_app/view/widgets/bottom_sheet_textfield_widget.dart';
 import 'package:shopping_app/view/widgets/elevated_button_widget.dart';
 
-class BottomSheetContentWidget extends StatelessWidget {
+class BottomSheetContentWidget extends HookConsumerWidget {
   const BottomSheetContentWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final nameController = useTextEditingController();
+    final mobileController = useTextEditingController();
+    final emailController = useTextEditingController();
+    final streetController = useTextEditingController();
+    final townController = useTextEditingController();
+    final cityController = useTextEditingController();
+    final pincodeController = useTextEditingController();
+    final countryController = useTextEditingController();
+    final stateController = useTextEditingController();
+    return Padding(
+      padding: const EdgeInsets.only(
         left: 24,
         right: 24,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
-          Row(
+          const Row(
             children: [
               Text(
                 'Add customer',
@@ -37,75 +50,129 @@ class BottomSheetContentWidget extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           BottomSheetTextFieldWidget(
-            label: 'Customer Name',
+            controller: nameController,
+            hintText: 'Customer Name',
+            helperText: 'Customer Name',
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           BottomSheetTextFieldWidget(
-            label: 'Mobile Number',
+            controller: mobileController,
+            keyboardType: TextInputType.phone,
+            hintText: 'Mobile Number',
+            helperText: 'Mobile Number',
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           BottomSheetTextFieldWidget(
-            label: 'Email',
+            controller: emailController,
+            keyboardType: TextInputType.emailAddress,
+            hintText: 'Email',
+            helperText: 'Email',
           ),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
-          Text(
+          const Text(
             'Address',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Expanded(child: BottomSheetTextFieldWidget(label: 'Street')),
-              SizedBox(
+              Expanded(
+                  child: BottomSheetTextFieldWidget(
+                controller: streetController,
+                hintText: 'Street',
+                helperText: 'Street',
+              )),
+              const SizedBox(
                 width: 25,
               ),
-              Expanded(child: BottomSheetTextFieldWidget(label: 'Street 2'))
+              Expanded(
+                  child: BottomSheetTextFieldWidget(
+                controller: townController,
+                hintText: 'Street 2',
+                helperText: 'Street 2',
+              ))
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Expanded(child: BottomSheetTextFieldWidget(label: 'City')),
-              SizedBox(
+              Expanded(
+                  child: BottomSheetTextFieldWidget(
+                controller: cityController,
+                hintText: 'City',
+                helperText: 'City',
+              )),
+              const SizedBox(
                 width: 25,
               ),
-              Expanded(child: BottomSheetTextFieldWidget(label: 'Pin code'))
+              Expanded(
+                  child: BottomSheetTextFieldWidget(
+                controller: pincodeController,
+                keyboardType: TextInputType.number,
+                hintText: 'Pin code',
+                helperText: 'Pin code',
+              ))
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Expanded(child: BottomSheetTextFieldWidget(label: 'Country')),
-              SizedBox(
+              Expanded(
+                  child: BottomSheetTextFieldWidget(
+                controller: countryController,
+                hintText: 'Country',
+                helperText: 'Country',
+              )),
+              const SizedBox(
                 width: 25,
               ),
-              Expanded(child: BottomSheetTextFieldWidget(label: 'State'))
+              Expanded(
+                  child: BottomSheetTextFieldWidget(
+                controller: stateController,
+                hintText: 'State',
+                helperText: 'State',
+              ))
             ],
           ),
-          Expanded(child: SizedBox()),
+          const Expanded(child: SizedBox()),
           Center(
               child: Padding(
-            padding: EdgeInsets.only(bottom: 14),
-            child: ElevatedButtonWidget(),
+            padding: const EdgeInsets.only(bottom: 14),
+            child: ElevatedButtonWidget(
+              onPressed: () {
+                ref.read(apiProvider.notifier).addCustomer(Details(
+                    id: null,
+                    name: nameController.text,
+                    profilePic: null,
+                    city: cityController.text,
+                    street: streetController.text,
+                    country: countryController.text,
+                    state: stateController.text,
+                    streetTwo: townController.text,
+                    email: emailController.text,
+                    number: mobileController.text,
+                    pinCode: pincodeController.text));
+              },
+            ),
           ))
         ],
       ),

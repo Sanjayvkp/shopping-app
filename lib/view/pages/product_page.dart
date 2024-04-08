@@ -47,7 +47,7 @@ class ProductPage extends HookConsumerWidget {
                     TextFieldWidget(
                       textEditingController: productController,
                       isProduct: true,
-                      onSubmitted: (p0) async {
+                      onChanged: (p0) async {
                         String searchText = productController.text;
                         await searchProductAndUpdateUI(searchText);
                       },
@@ -56,7 +56,7 @@ class ProductPage extends HookConsumerWidget {
                       height: 16,
                     ),
                     ProductGridviewWidget(
-                    productList: searchResults.value.isNotEmpty
+                      productList: searchResults.value.isNotEmpty
                           ? searchResults.value
                           : value.fetchProducts,
                     ),

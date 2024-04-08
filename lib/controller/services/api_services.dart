@@ -41,7 +41,4 @@ class ApiServices {
       throw Exception('Failed to fetch customers: $error');
     }
   }
-
-  
-  
 }

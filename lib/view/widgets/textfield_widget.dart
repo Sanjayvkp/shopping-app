@@ -6,11 +6,12 @@ class TextFieldWidget extends StatelessWidget {
   final bool? isProduct;
   final TextEditingController? textEditingController;
 
-  final void Function(String)? onSubmitted;
+  final void Function(String)? onChanged;
+
   const TextFieldWidget(
       {super.key,
       required this.isProduct,
-      required this.onSubmitted,
+      required this.onChanged,
       required this.textEditingController});
 
   @override
@@ -18,7 +19,7 @@ class TextFieldWidget extends StatelessWidget {
     return SizedBox(
       height: 45,
       child: TextField(
-        onSubmitted: onSubmitted,
+        onChanged: onChanged,
         controller: textEditingController,
         decoration: InputDecoration(
             prefixIcon: const Icon(
@@ -66,6 +67,7 @@ class TextFieldWidget extends StatelessWidget {
                           onTap: () {
                             showModalBottomSheet(
                               context: context,
+                              isScrollControlled: true,
                               builder: (context) {
                                 return const ShowModelWidget();
                               },

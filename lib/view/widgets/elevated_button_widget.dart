@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ElevatedButtonWidget extends StatelessWidget {
-  const ElevatedButtonWidget({super.key});
+  final void Function()? onPressed;
+  const ElevatedButtonWidget({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class ElevatedButtonWidget extends StatelessWidget {
       child: ElevatedButton(
         style:
             ElevatedButton.styleFrom(backgroundColor: const Color(0xFF17479b)),
-        onPressed: () {},
+        onPressed: onPressed,
         child: const Text(
           'Submit',
           style: TextStyle(color: Colors.white),

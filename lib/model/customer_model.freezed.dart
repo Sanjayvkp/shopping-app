@@ -20,13 +20,17 @@ Details _$DetailsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Details {
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get profilePic => throw _privateConstructorUsedError;
   String get city => throw _privateConstructorUsedError;
   String? get street => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
   String? get state => throw _privateConstructorUsedError;
+  String? get streetTwo => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get number => throw _privateConstructorUsedError;
+  String? get pinCode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,13 +43,17 @@ abstract class $DetailsCopyWith<$Res> {
       _$DetailsCopyWithImpl<$Res, Details>;
   @useResult
   $Res call(
-      {int id,
+      {int? id,
       String name,
       String? profilePic,
       String city,
       String? street,
       String? country,
-      String? state});
+      String? state,
+      String? streetTwo,
+      String? email,
+      String? number,
+      String? pinCode});
 }
 
 /// @nodoc
@@ -61,19 +69,23 @@ class _$DetailsCopyWithImpl<$Res, $Val extends Details>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? name = null,
     Object? profilePic = freezed,
     Object? city = null,
     Object? street = freezed,
     Object? country = freezed,
     Object? state = freezed,
+    Object? streetTwo = freezed,
+    Object? email = freezed,
+    Object? number = freezed,
+    Object? pinCode = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -97,6 +109,22 @@ class _$DetailsCopyWithImpl<$Res, $Val extends Details>
       state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
+              as String?,
+      streetTwo: freezed == streetTwo
+          ? _value.streetTwo
+          : streetTwo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      number: freezed == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pinCode: freezed == pinCode
+          ? _value.pinCode
+          : pinCode // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -110,13 +138,17 @@ abstract class _$$DetailsImplCopyWith<$Res> implements $DetailsCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
+      {int? id,
       String name,
       String? profilePic,
       String city,
       String? street,
       String? country,
-      String? state});
+      String? state,
+      String? streetTwo,
+      String? email,
+      String? number,
+      String? pinCode});
 }
 
 /// @nodoc
@@ -130,19 +162,23 @@ class __$$DetailsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? name = null,
     Object? profilePic = freezed,
     Object? city = null,
     Object? street = freezed,
     Object? country = freezed,
     Object? state = freezed,
+    Object? streetTwo = freezed,
+    Object? email = freezed,
+    Object? number = freezed,
+    Object? pinCode = freezed,
   }) {
     return _then(_$DetailsImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -166,6 +202,22 @@ class __$$DetailsImplCopyWithImpl<$Res>
       state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
+              as String?,
+      streetTwo: freezed == streetTwo
+          ? _value.streetTwo
+          : streetTwo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      number: freezed == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pinCode: freezed == pinCode
+          ? _value.pinCode
+          : pinCode // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -181,13 +233,17 @@ class _$DetailsImpl implements _Details {
       required this.city,
       required this.street,
       required this.country,
-      required this.state});
+      required this.state,
+      required this.streetTwo,
+      required this.email,
+      required this.number,
+      required this.pinCode});
 
   factory _$DetailsImpl.fromJson(Map<String, dynamic> json) =>
       _$$DetailsImplFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
   final String name;
   @override
@@ -200,10 +256,18 @@ class _$DetailsImpl implements _Details {
   final String? country;
   @override
   final String? state;
+  @override
+  final String? streetTwo;
+  @override
+  final String? email;
+  @override
+  final String? number;
+  @override
+  final String? pinCode;
 
   @override
   String toString() {
-    return 'Details(id: $id, name: $name, profilePic: $profilePic, city: $city, street: $street, country: $country, state: $state)';
+    return 'Details(id: $id, name: $name, profilePic: $profilePic, city: $city, street: $street, country: $country, state: $state, streetTwo: $streetTwo, email: $email, number: $number, pinCode: $pinCode)';
   }
 
   @override
@@ -218,13 +282,18 @@ class _$DetailsImpl implements _Details {
             (identical(other.city, city) || other.city == city) &&
             (identical(other.street, street) || other.street == street) &&
             (identical(other.country, country) || other.country == country) &&
-            (identical(other.state, state) || other.state == state));
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.streetTwo, streetTwo) ||
+                other.streetTwo == streetTwo) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.number, number) || other.number == number) &&
+            (identical(other.pinCode, pinCode) || other.pinCode == pinCode));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, profilePic, city, street, country, state);
+  int get hashCode => Object.hash(runtimeType, id, name, profilePic, city,
+      street, country, state, streetTwo, email, number, pinCode);
 
   @JsonKey(ignore: true)
   @override
@@ -242,18 +311,22 @@ class _$DetailsImpl implements _Details {
 
 abstract class _Details implements Details {
   const factory _Details(
-      {required final int id,
+      {required final int? id,
       required final String name,
       required final String? profilePic,
       required final String city,
       required final String? street,
       required final String? country,
-      required final String? state}) = _$DetailsImpl;
+      required final String? state,
+      required final String? streetTwo,
+      required final String? email,
+      required final String? number,
+      required final String? pinCode}) = _$DetailsImpl;
 
   factory _Details.fromJson(Map<String, dynamic> json) = _$DetailsImpl.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
   String get name;
   @override
@@ -266,6 +339,14 @@ abstract class _Details implements Details {
   String? get country;
   @override
   String? get state;
+  @override
+  String? get streetTwo;
+  @override
+  String? get email;
+  @override
+  String? get number;
+  @override
+  String? get pinCode;
   @override
   @JsonKey(ignore: true)
   _$$DetailsImplCopyWith<_$DetailsImpl> get copyWith =>

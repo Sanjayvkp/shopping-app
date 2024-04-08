@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shopping_app/controller/providers/api_provider_state.dart';
@@ -73,6 +75,24 @@ class Api extends _$Api {
       }
     } catch (error) {
       throw Exception('Failed to fetch customer: $error');
+    }
+  }
+
+  Future<void> addCustomer(Details customer) async {
+    try {
+      final Map<String, dynamic> customerJson = customer.toJson();
+      Response response = await dio.post(
+        ApiUtils.baseUrl + ApiUtils.customers,
+        data: customerJson,
+      );
+      if (response.statusCode == 200) {
+        log('Customer added successfully');
+      } else {
+        throw Exception(
+            'Failed to add customer. Status code: ${response.statusCode}');
+      }
+    } catch (error) {
+      throw Exception('Failed to add customer: $error');
     }
   }
 }
