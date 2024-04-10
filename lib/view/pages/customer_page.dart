@@ -14,6 +14,8 @@ class CustomerPage extends HookConsumerWidget {
     super.key,
   });
   @override
+
+  
   Widget build(BuildContext context, WidgetRef ref) {
     final searchController = useTextEditingController();
     final data = ref.read(apiProvider.notifier);

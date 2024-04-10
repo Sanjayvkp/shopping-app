@@ -20,6 +20,24 @@ class BottomSheetContentWidget extends HookConsumerWidget {
     final pincodeController = useTextEditingController();
     final countryController = useTextEditingController();
     final stateController = useTextEditingController();
+
+    //function for add customer
+    void addCustomer() {
+      ref.read(apiProvider.notifier).addCustomer(Details(
+            id: null,
+            profilePic: null,
+            name: nameController.text,
+            email: emailController.text,
+            number: mobileController.text,
+            street: streetController.text,
+            streetTwo: townController.text,
+            city: cityController.text,
+            state: stateController.text,
+            country: countryController.text,
+            pinCode: pincodeController.text,
+          ));
+    }
+
     return Padding(
       padding: const EdgeInsets.only(
         left: 24,
@@ -29,24 +47,27 @@ class BottomSheetContentWidget extends HookConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(
-            height: 24,
+            height: 34,
           ),
-          const Row(
+          Row(
             children: [
-              Text(
+              const Text(
                 'Add customer',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              Expanded(child: SizedBox()),
-              CircleAvatar(
-                backgroundColor: Color.fromARGB(255, 217, 237, 252),
-                radius: 13,
-                child: Center(
-                    child: Icon(
-                  Icons.close,
-                  size: 18,
-                  color: Color(0xFF17479b),
-                )),
+              const Expanded(child: SizedBox()),
+              InkWell(
+                onTap: () => Navigator.pop(context),
+                child: const CircleAvatar(
+                  backgroundColor: Color.fromARGB(255, 217, 237, 252),
+                  radius: 13,
+                  child: Center(
+                      child: Icon(
+                    Icons.close,
+                    size: 18,
+                    color: Color(0xFF17479b),
+                  )),
+                ),
               )
             ],
           ),
@@ -141,6 +162,7 @@ class BottomSheetContentWidget extends HookConsumerWidget {
                 controller: countryController,
                 hintText: 'Country',
                 helperText: 'Country',
+                suffixIcon: const Icon(Icons.keyboard_arrow_down_rounded),
               )),
               const SizedBox(
                 width: 25,
@@ -150,6 +172,7 @@ class BottomSheetContentWidget extends HookConsumerWidget {
                 controller: stateController,
                 hintText: 'State',
                 helperText: 'State',
+                suffixIcon: const Icon(Icons.keyboard_arrow_down_rounded),
               ))
             ],
           ),
@@ -158,21 +181,7 @@ class BottomSheetContentWidget extends HookConsumerWidget {
               child: Padding(
             padding: const EdgeInsets.only(bottom: 14),
             child: ElevatedButtonWidget(
-              onPressed: () {
-                ref.read(apiProvider.notifier).addCustomer(Details(
-                      id: null,
-                      name: nameController.text,
-                      profilePic: null,
-                      city: cityController.text,
-                      street: streetController.text,
-                      country: countryController.text,
-                      state: stateController.text,
-                      streetTwo: townController.text,
-                      email: emailController.text,
-                      number: mobileController.text,
-                      pinCode: pincodeController.text,
-                    ));
-              },
+              onPressed: () => addCustomer(),
             ),
           ))
         ],

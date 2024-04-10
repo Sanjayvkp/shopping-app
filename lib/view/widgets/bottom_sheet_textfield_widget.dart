@@ -6,9 +6,11 @@ class BottomSheetTextFieldWidget extends HookWidget {
   final String hintText;
   final TextInputType? keyboardType;
   final String helperText;
+  final Widget? suffixIcon;
   const BottomSheetTextFieldWidget({
     super.key,
     required this.controller,
+    this.suffixIcon,
     this.keyboardType,
     required this.hintText,
     required this.helperText,
@@ -52,9 +54,10 @@ class BottomSheetTextFieldWidget extends HookWidget {
             cursorHeight: 25,
             cursorWidth: .8,
             decoration: InputDecoration(
+              suffixIcon: suffixIcon,
               hintText: hintText,
               hintStyle: const TextStyle(
-                fontSize: 12,
+                fontSize: 14,
                 fontWeight: FontWeight.w500,
                 color: Colors.grey,
               ),

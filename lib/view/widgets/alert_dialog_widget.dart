@@ -24,7 +24,7 @@ class AlertDialogWidget extends StatelessWidget {
       backgroundColor: Colors.white,
       shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(20)),
       content: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
         child: Column(
           children: [
             const SizedBox(
