@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopping_app/view/widgets/bottom_sheet_content_widget.dart';
 
-class ShowModelWidget extends StatelessWidget {
+class ShowModelWidget extends ConsumerWidget {
   const ShowModelWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),

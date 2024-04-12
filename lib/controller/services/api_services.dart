@@ -24,16 +24,16 @@ class ApiServices {
     }
   }
 
-  Future<List<Details>> fetchCustomers() async {
+  Future<List<CustomersModel>> fetchCustomers() async {
     try {
       Response response = await dio.get(ApiUtils.baseUrl + ApiUtils.customers);
       if (response.statusCode == 200) {
         final data = response.data;
-        final details = <Details>[];
+        final customersModel = <CustomersModel>[];
         for (var i in data['data']) {
-          details.add(Details.fromJson(i));
+          customersModel.add(CustomersModel.fromJson(i));
         }
-        return details;
+        return customersModel;
       } else {
         throw Exception('Failed to load customers');
       }

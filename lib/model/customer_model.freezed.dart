@@ -14,52 +14,54 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-Details _$DetailsFromJson(Map<String, dynamic> json) {
-  return _Details.fromJson(json);
+CustomersModel _$CustomersModelFromJson(Map<String, dynamic> json) {
+  return _CustomersModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Details {
+mixin _$CustomersModel {
   int? get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get mobile_number => throw _privateConstructorUsedError;
   String? get profilePic => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
-  String? get street => throw _privateConstructorUsedError;
-  String? get country => throw _privateConstructorUsedError;
-  String? get state => throw _privateConstructorUsedError;
-  String? get streetTwo => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
-  String? get number => throw _privateConstructorUsedError;
-  String? get pinCode => throw _privateConstructorUsedError;
+  String? get street => throw _privateConstructorUsedError;
+  String? get street_two => throw _privateConstructorUsedError;
+  int? get pincode => throw _privateConstructorUsedError;
+  String? get state => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DetailsCopyWith<Details> get copyWith => throw _privateConstructorUsedError;
+  $CustomersModelCopyWith<CustomersModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DetailsCopyWith<$Res> {
-  factory $DetailsCopyWith(Details value, $Res Function(Details) then) =
-      _$DetailsCopyWithImpl<$Res, Details>;
+abstract class $CustomersModelCopyWith<$Res> {
+  factory $CustomersModelCopyWith(
+          CustomersModel value, $Res Function(CustomersModel) then) =
+      _$CustomersModelCopyWithImpl<$Res, CustomersModel>;
   @useResult
   $Res call(
       {int? id,
-      String name,
+      String? name,
+      String? mobile_number,
       String? profilePic,
-      String city,
-      String? street,
-      String? country,
-      String? state,
-      String? streetTwo,
       String? email,
-      String? number,
-      String? pinCode});
+      String? street,
+      String? street_two,
+      int? pincode,
+      String? state,
+      String? city,
+      String? country});
 }
 
 /// @nodoc
-class _$DetailsCopyWithImpl<$Res, $Val extends Details>
-    implements $DetailsCopyWith<$Res> {
-  _$DetailsCopyWithImpl(this._value, this._then);
+class _$CustomersModelCopyWithImpl<$Res, $Val extends CustomersModel>
+    implements $CustomersModelCopyWith<$Res> {
+  _$CustomersModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -70,154 +72,155 @@ class _$DetailsCopyWithImpl<$Res, $Val extends Details>
   @override
   $Res call({
     Object? id = freezed,
-    Object? name = null,
+    Object? name = freezed,
+    Object? mobile_number = freezed,
     Object? profilePic = freezed,
-    Object? city = null,
-    Object? street = freezed,
-    Object? country = freezed,
-    Object? state = freezed,
-    Object? streetTwo = freezed,
     Object? email = freezed,
-    Object? number = freezed,
-    Object? pinCode = freezed,
+    Object? street = freezed,
+    Object? street_two = freezed,
+    Object? pincode = freezed,
+    Object? state = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      mobile_number: freezed == mobile_number
+          ? _value.mobile_number
+          : mobile_number // ignore: cast_nullable_to_non_nullable
+              as String?,
       profilePic: freezed == profilePic
           ? _value.profilePic
           : profilePic // ignore: cast_nullable_to_non_nullable
-              as String?,
-      city: null == city
-          ? _value.city
-          : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      street: freezed == street
-          ? _value.street
-          : street // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      state: freezed == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as String?,
-      streetTwo: freezed == streetTwo
-          ? _value.streetTwo
-          : streetTwo // ignore: cast_nullable_to_non_nullable
               as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      number: freezed == number
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
               as String?,
-      pinCode: freezed == pinCode
-          ? _value.pinCode
-          : pinCode // ignore: cast_nullable_to_non_nullable
+      street_two: freezed == street_two
+          ? _value.street_two
+          : street_two // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pincode: freezed == pincode
+          ? _value.pincode
+          : pincode // ignore: cast_nullable_to_non_nullable
+              as int?,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$DetailsImplCopyWith<$Res> implements $DetailsCopyWith<$Res> {
-  factory _$$DetailsImplCopyWith(
-          _$DetailsImpl value, $Res Function(_$DetailsImpl) then) =
-      __$$DetailsImplCopyWithImpl<$Res>;
+abstract class _$$CustomersModelImplCopyWith<$Res>
+    implements $CustomersModelCopyWith<$Res> {
+  factory _$$CustomersModelImplCopyWith(_$CustomersModelImpl value,
+          $Res Function(_$CustomersModelImpl) then) =
+      __$$CustomersModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {int? id,
-      String name,
+      String? name,
+      String? mobile_number,
       String? profilePic,
-      String city,
-      String? street,
-      String? country,
-      String? state,
-      String? streetTwo,
       String? email,
-      String? number,
-      String? pinCode});
+      String? street,
+      String? street_two,
+      int? pincode,
+      String? state,
+      String? city,
+      String? country});
 }
 
 /// @nodoc
-class __$$DetailsImplCopyWithImpl<$Res>
-    extends _$DetailsCopyWithImpl<$Res, _$DetailsImpl>
-    implements _$$DetailsImplCopyWith<$Res> {
-  __$$DetailsImplCopyWithImpl(
-      _$DetailsImpl _value, $Res Function(_$DetailsImpl) _then)
+class __$$CustomersModelImplCopyWithImpl<$Res>
+    extends _$CustomersModelCopyWithImpl<$Res, _$CustomersModelImpl>
+    implements _$$CustomersModelImplCopyWith<$Res> {
+  __$$CustomersModelImplCopyWithImpl(
+      _$CustomersModelImpl _value, $Res Function(_$CustomersModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
-    Object? name = null,
+    Object? name = freezed,
+    Object? mobile_number = freezed,
     Object? profilePic = freezed,
-    Object? city = null,
-    Object? street = freezed,
-    Object? country = freezed,
-    Object? state = freezed,
-    Object? streetTwo = freezed,
     Object? email = freezed,
-    Object? number = freezed,
-    Object? pinCode = freezed,
+    Object? street = freezed,
+    Object? street_two = freezed,
+    Object? pincode = freezed,
+    Object? state = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
   }) {
-    return _then(_$DetailsImpl(
+    return _then(_$CustomersModelImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      mobile_number: freezed == mobile_number
+          ? _value.mobile_number
+          : mobile_number // ignore: cast_nullable_to_non_nullable
+              as String?,
       profilePic: freezed == profilePic
           ? _value.profilePic
           : profilePic // ignore: cast_nullable_to_non_nullable
-              as String?,
-      city: null == city
-          ? _value.city
-          : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      street: freezed == street
-          ? _value.street
-          : street // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      state: freezed == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as String?,
-      streetTwo: freezed == streetTwo
-          ? _value.streetTwo
-          : streetTwo // ignore: cast_nullable_to_non_nullable
               as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      number: freezed == number
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
               as String?,
-      pinCode: freezed == pinCode
-          ? _value.pinCode
-          : pinCode // ignore: cast_nullable_to_non_nullable
+      street_two: freezed == street_two
+          ? _value.street_two
+          : street_two // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pincode: freezed == pincode
+          ? _value.pincode
+          : pincode // ignore: cast_nullable_to_non_nullable
+              as int?,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -225,130 +228,133 @@ class __$$DetailsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DetailsImpl implements _Details {
-  const _$DetailsImpl(
+class _$CustomersModelImpl implements _CustomersModel {
+  const _$CustomersModelImpl(
       {required this.id,
       required this.name,
+      required this.mobile_number,
       required this.profilePic,
-      required this.city,
-      required this.street,
-      required this.country,
-      required this.state,
-      required this.streetTwo,
       required this.email,
-      required this.number,
-      required this.pinCode});
+      required this.street,
+      required this.street_two,
+      required this.pincode,
+      required this.state,
+      required this.city,
+      required this.country});
 
-  factory _$DetailsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DetailsImplFromJson(json);
+  factory _$CustomersModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CustomersModelImplFromJson(json);
 
   @override
   final int? id;
   @override
-  final String name;
+  final String? name;
+  @override
+  final String? mobile_number;
   @override
   final String? profilePic;
   @override
-  final String city;
+  final String? email;
   @override
   final String? street;
   @override
-  final String? country;
+  final String? street_two;
+  @override
+  final int? pincode;
   @override
   final String? state;
   @override
-  final String? streetTwo;
+  final String? city;
   @override
-  final String? email;
-  @override
-  final String? number;
-  @override
-  final String? pinCode;
+  final String? country;
 
   @override
   String toString() {
-    return 'Details(id: $id, name: $name, profilePic: $profilePic, city: $city, street: $street, country: $country, state: $state, streetTwo: $streetTwo, email: $email, number: $number, pinCode: $pinCode)';
+    return 'CustomersModel(id: $id, name: $name, mobile_number: $mobile_number, profilePic: $profilePic, email: $email, street: $street, street_two: $street_two, pincode: $pincode, state: $state, city: $city, country: $country)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DetailsImpl &&
+            other is _$CustomersModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.mobile_number, mobile_number) ||
+                other.mobile_number == mobile_number) &&
             (identical(other.profilePic, profilePic) ||
                 other.profilePic == profilePic) &&
-            (identical(other.city, city) || other.city == city) &&
-            (identical(other.street, street) || other.street == street) &&
-            (identical(other.country, country) || other.country == country) &&
-            (identical(other.state, state) || other.state == state) &&
-            (identical(other.streetTwo, streetTwo) ||
-                other.streetTwo == streetTwo) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.number, number) || other.number == number) &&
-            (identical(other.pinCode, pinCode) || other.pinCode == pinCode));
+            (identical(other.street, street) || other.street == street) &&
+            (identical(other.street_two, street_two) ||
+                other.street_two == street_two) &&
+            (identical(other.pincode, pincode) || other.pincode == pincode) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.country, country) || other.country == country));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, profilePic, city,
-      street, country, state, streetTwo, email, number, pinCode);
+  int get hashCode => Object.hash(runtimeType, id, name, mobile_number,
+      profilePic, email, street, street_two, pincode, state, city, country);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailsImplCopyWith<_$DetailsImpl> get copyWith =>
-      __$$DetailsImplCopyWithImpl<_$DetailsImpl>(this, _$identity);
+  _$$CustomersModelImplCopyWith<_$CustomersModelImpl> get copyWith =>
+      __$$CustomersModelImplCopyWithImpl<_$CustomersModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DetailsImplToJson(
+    return _$$CustomersModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _Details implements Details {
-  const factory _Details(
+abstract class _CustomersModel implements CustomersModel {
+  const factory _CustomersModel(
       {required final int? id,
-      required final String name,
+      required final String? name,
+      required final String? mobile_number,
       required final String? profilePic,
-      required final String city,
-      required final String? street,
-      required final String? country,
-      required final String? state,
-      required final String? streetTwo,
       required final String? email,
-      required final String? number,
-      required final String? pinCode}) = _$DetailsImpl;
+      required final String? street,
+      required final String? street_two,
+      required final int? pincode,
+      required final String? state,
+      required final String? city,
+      required final String? country}) = _$CustomersModelImpl;
 
-  factory _Details.fromJson(Map<String, dynamic> json) = _$DetailsImpl.fromJson;
+  factory _CustomersModel.fromJson(Map<String, dynamic> json) =
+      _$CustomersModelImpl.fromJson;
 
   @override
   int? get id;
   @override
-  String get name;
+  String? get name;
+  @override
+  String? get mobile_number;
   @override
   String? get profilePic;
   @override
-  String get city;
+  String? get email;
   @override
   String? get street;
   @override
-  String? get country;
+  String? get street_two;
+  @override
+  int? get pincode;
   @override
   String? get state;
   @override
-  String? get streetTwo;
+  String? get city;
   @override
-  String? get email;
-  @override
-  String? get number;
-  @override
-  String? get pinCode;
+  String? get country;
   @override
   @JsonKey(ignore: true)
-  _$$DetailsImplCopyWith<_$DetailsImpl> get copyWith =>
+  _$$CustomersModelImplCopyWith<_$CustomersModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

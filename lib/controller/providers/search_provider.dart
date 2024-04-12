@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shopping_app/controller/providers/api_provider_state.dart';
@@ -8,12 +6,13 @@ import 'package:shopping_app/model/customer_model.dart';
 import 'package:shopping_app/model/product_model.dart';
 import 'package:shopping_app/utils/api_utils.dart';
 
-part 'api_provider.g.dart';
+part 'search_provider.g.dart';
 
 @riverpod
-class Api extends _$Api {
-  ApiServices apiServices = ApiServices();
+class Search extends _$Search {
   final Dio dio = Dio();
+  ApiServices apiServices = ApiServices();
+
   @override
   Future<ApiProviderState> build() async {
     final result = await Future.wait([
@@ -21,40 +20,11 @@ class Api extends _$Api {
       apiServices.fetchCustomers(),
     ]);
     final List<Datas> products = result[0] as List<Datas>;
-    final List<Details> customers = result[1] as List<Details>;
+    final List<CustomersModel> customers = result[1] as List<CustomersModel>;
     return ApiProviderState(
       fetchProducts: products,
       fetchCustomers: customers,
     );
-  }
-
-  Stream<void> getProducts() async* {
-    await apiServices.fetchProducts();
-  }
-
-  Stream<void> getCustomers() async* {
-    await apiServices.fetchCustomers();
-  }
-
-  Future<List<Details>> searchCustomer(String? text) async {
-    try {
-      Response response = await dio.get(ApiUtils.baseUrl +
-          ApiUtils.customers +
-          ApiUtils.searchCustomer +
-          text!);
-      if (response.statusCode == 200) {
-        final data = response.data;
-        final details = <Details>[];
-        for (var i in data['data']) {
-          details.add(Details.fromJson(i));
-        }
-        return details;
-      } else {
-        throw Exception('Failed to load customer');
-      }
-    } catch (error) {
-      throw Exception('Failed to fetch customer: $error');
-    }
   }
 
   Future<List<Datas>> searchProducts(String? text) async {
@@ -71,28 +41,31 @@ class Api extends _$Api {
         }
         return datas;
       } else {
+        throw Exception('Failed to load products');
+      }
+    } catch (error) {
+      throw Exception('Failed to fetch products: $error');
+    }
+  }
+
+  Future<List<CustomersModel>> searchCustomer(String? text) async {
+    try {
+      Response response = await dio.get(ApiUtils.baseUrl +
+          ApiUtils.customers +
+          ApiUtils.searchCustomer +
+          text!);
+      if (response.statusCode == 200) {
+        final data = response.data;
+        final customersModel = <CustomersModel>[];
+        for (var i in data['data']) {
+          customersModel.add(CustomersModel.fromJson(i));
+        }
+        return customersModel;
+      } else {
         throw Exception('Failed to load customer');
       }
     } catch (error) {
       throw Exception('Failed to fetch customer: $error');
-    }
-  }
-
-  Future<void> addCustomer(Details customer) async {
-    try {
-      final Map<String, dynamic> customerJson = customer.toJson();
-      Response response = await dio.post(
-        ApiUtils.baseUrl + ApiUtils.customers,
-        data: customerJson,
-      );
-      if (response.statusCode == 200) {
-        log('Customer added successfully');
-      } else {
-        throw Exception(
-            'Failed to add customer. Status code: ${response.statusCode}');
-      }
-    } catch (error) {
-      throw Exception('Failed to add customer: $error');
     }
   }
 }

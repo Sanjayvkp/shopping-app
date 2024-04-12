@@ -1,24 +1,26 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'customer_model.freezed.dart';
 part 'customer_model.g.dart';
 
 @freezed
-class Details with _$Details {
-  const factory Details({
+class CustomersModel with _$CustomersModel {
+  const factory CustomersModel({
     required int? id,
-    required String name,
+    required String? name,
+    required String? mobile_number,
     required String? profilePic,
-    required String city,
-    required String? street,
-    required String? country,
-    required String? state,
-    required String? streetTwo,
     required String? email,
-    required String? number,
-    required String? pinCode,
-  }) = _Details;
+    required String? street,
+    required String? street_two,
+    required int? pincode,
+    required String? state,
+    required String? city,
+    required String? country,
+  }) = _CustomersModel;
 
-  factory Details.fromJson(Map<String, dynamic> json) =>
-      _$DetailsFromJson(json);
+  factory CustomersModel.fromJson(Map<String, dynamic> json) =>
+      _$CustomersModelFromJson(json);
 }

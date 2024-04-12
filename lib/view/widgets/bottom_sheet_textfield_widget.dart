@@ -42,7 +42,13 @@ class BottomSheetTextFieldWidget extends HookWidget {
         ),
         SizedBox(
           height: 38,
-          child: TextField(
+          child: TextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'empty fields';
+              }
+              return null;
+            },
             focusNode: focusNode,
             onChanged: (value) {
               if (value.isEmpty) {

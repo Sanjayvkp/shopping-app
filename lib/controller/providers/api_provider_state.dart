@@ -8,6 +8,7 @@ part 'api_provider_state.freezed.dart';
 class ApiProviderState with _$ApiProviderState {
   factory ApiProviderState({
     required List<Datas> fetchProducts,
-    required List<Details> fetchCustomers,
+    required List<CustomersModel> fetchCustomers,
+    
   }) = _ApiProviderState;
 }

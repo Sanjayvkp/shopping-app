@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ApiProviderState {
   List<Datas> get fetchProducts => throw _privateConstructorUsedError;
-  List<Details> get fetchCustomers => throw _privateConstructorUsedError;
+  List<CustomersModel> get fetchCustomers => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ApiProviderStateCopyWith<ApiProviderState> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $ApiProviderStateCopyWith<$Res> {
           ApiProviderState value, $Res Function(ApiProviderState) then) =
       _$ApiProviderStateCopyWithImpl<$Res, ApiProviderState>;
   @useResult
-  $Res call({List<Datas> fetchProducts, List<Details> fetchCustomers});
+  $Res call({List<Datas> fetchProducts, List<CustomersModel> fetchCustomers});
 }
 
 /// @nodoc
@@ -57,7 +57,7 @@ class _$ApiProviderStateCopyWithImpl<$Res, $Val extends ApiProviderState>
       fetchCustomers: null == fetchCustomers
           ? _value.fetchCustomers
           : fetchCustomers // ignore: cast_nullable_to_non_nullable
-              as List<Details>,
+              as List<CustomersModel>,
     ) as $Val);
   }
 }
@@ -70,7 +70,7 @@ abstract class _$$ApiProviderStateImplCopyWith<$Res>
       __$$ApiProviderStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Datas> fetchProducts, List<Details> fetchCustomers});
+  $Res call({List<Datas> fetchProducts, List<CustomersModel> fetchCustomers});
 }
 
 /// @nodoc
@@ -95,7 +95,7 @@ class __$$ApiProviderStateImplCopyWithImpl<$Res>
       fetchCustomers: null == fetchCustomers
           ? _value._fetchCustomers
           : fetchCustomers // ignore: cast_nullable_to_non_nullable
-              as List<Details>,
+              as List<CustomersModel>,
     ));
   }
 }
@@ -105,7 +105,7 @@ class __$$ApiProviderStateImplCopyWithImpl<$Res>
 class _$ApiProviderStateImpl implements _ApiProviderState {
   _$ApiProviderStateImpl(
       {required final List<Datas> fetchProducts,
-      required final List<Details> fetchCustomers})
+      required final List<CustomersModel> fetchCustomers})
       : _fetchProducts = fetchProducts,
         _fetchCustomers = fetchCustomers;
 
@@ -117,9 +117,9 @@ class _$ApiProviderStateImpl implements _ApiProviderState {
     return EqualUnmodifiableListView(_fetchProducts);
   }
 
-  final List<Details> _fetchCustomers;
+  final List<CustomersModel> _fetchCustomers;
   @override
-  List<Details> get fetchCustomers {
+  List<CustomersModel> get fetchCustomers {
     if (_fetchCustomers is EqualUnmodifiableListView) return _fetchCustomers;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fetchCustomers);
@@ -157,13 +157,14 @@ class _$ApiProviderStateImpl implements _ApiProviderState {
 
 abstract class _ApiProviderState implements ApiProviderState {
   factory _ApiProviderState(
-      {required final List<Datas> fetchProducts,
-      required final List<Details> fetchCustomers}) = _$ApiProviderStateImpl;
+          {required final List<Datas> fetchProducts,
+          required final List<CustomersModel> fetchCustomers}) =
+      _$ApiProviderStateImpl;
 
   @override
   List<Datas> get fetchProducts;
   @override
-  List<Details> get fetchCustomers;
+  List<CustomersModel> get fetchCustomers;
   @override
   @JsonKey(ignore: true)
   _$$ApiProviderStateImplCopyWith<_$ApiProviderStateImpl> get copyWith =>

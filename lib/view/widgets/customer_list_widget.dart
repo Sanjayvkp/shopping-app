@@ -4,7 +4,7 @@ import 'package:shopping_app/model/customer_model.dart';
 import 'package:shopping_app/view/widgets/alert_dialog_widget.dart';
 
 class CustomerListWidget extends ConsumerWidget {
-  final List<Details> customerDetails;
+  final List<CustomersModel> customerDetails;
   const CustomerListWidget({super.key, required this.customerDetails});
 
   @override
@@ -25,9 +25,9 @@ class CustomerListWidget extends ConsumerWidget {
               context: context,
               builder: (context) {
                 return AlertDialogWidget(
-                  name: customerDetails[index].name,
-                  mobile: customerDetails[index].number.toString(),
-                  city: customerDetails[index].city,
+                  name: customerDetails[index].name!,
+                  mobile: customerDetails[index].mobile_number.toString(),
+                  city: customerDetails[index].city!,
                   email: customerDetails[index].email!,
                   street: customerDetails[index].street!,
                 );
@@ -77,7 +77,7 @@ class CustomerListWidget extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        customerDetails[index].name,
+                        customerDetails[index].name!,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),

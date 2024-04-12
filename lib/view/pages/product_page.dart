@@ -3,7 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:shopping_app/controller/providers/api_provider.dart';
+import 'package:shopping_app/controller/providers/fetch_provider.dart';
+import 'package:shopping_app/controller/providers/search_provider.dart';
 import 'package:shopping_app/model/product_model.dart';
 import 'package:shopping_app/view/widgets/appbar_widget.dart';
 import 'package:shopping_app/view/widgets/bottom_navigation_widget.dart';
@@ -16,7 +17,7 @@ class ProductPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final productController = useTextEditingController();
-    final data = ref.read(apiProvider.notifier);
+    final data = ref.read(searchProvider.notifier);
     final searchResults = useState<List<Datas>>([]);
 
     Future<void> searchProductAndUpdateUI(String searchText) async {
@@ -38,7 +39,7 @@ class ProductPage extends HookConsumerWidget {
         appBar: const PreferredSize(
             preferredSize: Size.fromHeight(85),
             child: AppBarWidget(title: 'Nesto Hypermarket')),
-        body: switch (ref.watch(apiProvider)) {
+        body: switch (ref.watch(fetchProvider)) {
           AsyncData(:final value) => SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
