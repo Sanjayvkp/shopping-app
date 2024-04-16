@@ -5,7 +5,7 @@ class SnackBarUtils {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         backgroundColor: Colors.blue,
         margin: const EdgeInsets.all(16),
-        behavior: SnackBarBehavior.fixed,
+        behavior: SnackBarBehavior.floating,
         content: Text(message)));
   }
 }
